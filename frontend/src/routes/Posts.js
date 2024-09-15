@@ -1,11 +1,8 @@
 // import './App.css';
 import { Outlet } from 'react-router-dom';
 import PostsList from '../componests/PostsList';
-import { useState } from 'react';
 
 function Posts() {
-  const [modalIsVisible, setModalIsVisible] = useState(false);
-
   return (
     <>
     <Outlet/>
@@ -17,4 +14,10 @@ function Posts() {
 }
 
 export default Posts; 
+
+export async function loader(){
+  const response = await fetch('http://localhost:8080/posts')
+  const resData = await response.json();
+  return resData.posts;
+}
     
