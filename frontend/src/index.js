@@ -7,6 +7,7 @@ import Posts, { loader as postsLoader } from './routes/Posts';
 import reportWebVitals from './reportWebVitals';
 import NewPost, { action as newPostAction } from './routes/NewPost';
 import RootLayout from './routes/RootLayout';
+import PostDetails, {loader as PostDetailsLoader} from './routes/PostDetails'
 
 
 const router = createBrowserRouter([
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
           path: '/create-post', 
           element: <NewPost />,
           action: newPostAction
+        },
+        {
+          path: '/:id',
+          element: <PostDetails/>,
+          loader: PostDetailsLoader,
         }
       ]},
     ]
